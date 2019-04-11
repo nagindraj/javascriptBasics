@@ -1,4 +1,3 @@
-
 body {
     width:70%;
     margin:auto;
@@ -50,4 +49,8 @@ th, td {
     height: 334px;
     overflow: scroll;
     margin-bottom: 3%;
+}
+
+.showCheckbox {
+    display: 'visible';
 }
