@@ -51,3 +51,7 @@ th, td {
     overflow: scroll;
     margin-bottom: 3%;
 }
+
+.showCheckbox {
+    display: 'visible';
+}
