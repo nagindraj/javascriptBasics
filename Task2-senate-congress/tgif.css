@@ -53,8 +53,12 @@ th, td {
 
 .showCheckbox {
     display: 'visible';
-<<<<<<< HEAD
+
 }
-=======
+
+
+
+
+.labelstyle {
+    padding-right: 20px;
 }
->>>>>>> 3b3eed2443c19db8febaf6a5629d286f484d9625
