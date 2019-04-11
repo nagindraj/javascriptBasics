@@ -2,23 +2,67 @@
 <html lang="en">
 
 <head>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../tgif.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="../common.js"></script>
 </head>
 
-<body>    
-    <table id="senate-data">
-        <tr>
-            <th id="demo">Name</th>
-            <th>Party</th>
-            <th>State</th>
-            <th>Years of Experience</th>
-            <th>% of Votes</th>
-        </tr>
-        <tbody>
+<body>
+    <div class="main">
+        <div class="tgif_logo">
+            <h2><a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">TGIF</a></h2>
+        </div>
+        <div class="tgif_email"><span class="glyphicon glyphicon-envelope envelope"></span><a href="info@tgif.com">info@tgif.net</a></div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-data.html">Senate</a></li>
+                        <li><a href="./house-data.html">House</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h2>Senate</h2>
+    <p class="tgif_para">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+    <div id="checkboxes">
+        <input type="checkbox" value='R' name="mycheckboxes" id="Republican">
+        <label for="republican">Republican</label>
+        <input type="checkbox" value='D' name="mycheckboxes" id="Democrates">
+        <label for="republican">Democrates</label>
+    </div>
+    <div class=tgif_rolling_table>
+        <table id="senate-data" class="table table-bordered table-hover">
+            <tr>
+                <th id="demo">Name</th>
+                <th>Party</th>
+                <th>State</th>
+                <th>Years of Experience</th>
+                <th>% of Votes</th>
+            </tr>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+        
     <script src="../pro-congress-113-senate.js"></script>
     <script src="../senate.js" type="application/javascript">
     </script>
-</body></html>
+    <footer>
+        <nav class="navbar navbar-default copyright_text">
+            <div class="container-fluid">
+                <a href="#">(c) 2016 TGIF | All Rights Reserved.</a>
+            </div>
+        </nav>
+    </footer>
+</body>
+
+</html>
