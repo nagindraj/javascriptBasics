@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-var trElement_data = document.querySelector("#senate-data").innerHTML;
-=======
-var trElement_data = document.querySelector("#senate-data tbody").innerHTML;
->>>>>>> 3b3eed2443c19db8febaf6a5629d286f484d9625
 
+var trElement_data = document.querySelector("#senate-data").innerHTML;
 var mainTr = '';
 var membersData = data.results[0].members;
 for (var i = 0; i < membersData.length; i++) {
@@ -18,8 +14,6 @@ for (var i = 0; i < membersData.length; i++) {
 
     var linkName = fullName.link(membersData[i].url);
     document.getElementById("demo").innerHTML = linkName;
-
-
     var party = membersData[i].party;
     var state = membersData[i].state;
     var seniority = membersData[i].seniority;
@@ -31,14 +25,9 @@ for (var i = 0; i < membersData.length; i++) {
     var trElement = '<tr class="senate"><td>' + linkName + '</td> ' + partyTr + stateTr + seniorityTr + votes_with_party_pct_Tr + '</tr>';
     mainTr = mainTr + trElement;
 }
-
 trElement_data = trElement_data + mainTr;
-
-<<<<<<< HEAD
 document.querySelector("#senate-data").innerHTML = trElement_data;
-=======
-document.querySelector("#senate-data tbody").innerHTML = trElement_data;
->>>>>>> 3b3eed2443c19db8febaf6a5629d286f484d9625
+document.querySelector("#senate-data ").innerHTML = trElement_data;
 
 //code for checkbox filtering starts
 
@@ -97,10 +86,10 @@ function showTrsWith(party) {
             trElems[i].classList.remove('hide');
             trElems[i].classList.add('showCheckbox');
         }
-<<<<<<< HEAD
+
     }
 }
-=======
-    } 
-}
->>>>>>> 3b3eed2443c19db8febaf6a5629d286f484d9625
+
+     
+
+
