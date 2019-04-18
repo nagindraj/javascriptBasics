@@ -1,7 +1,8 @@
 body {
     width:70%;
     margin:auto;
-    margin-top: 5%;
+    margin-top: 1%;
+    
 }
 
 .tgif_email {
@@ -46,7 +47,7 @@ th, td {
 }
 
 .tgif_rolling_table {
-    height: 334px;
+    height: 350px;
     overflow: scroll;
     margin-bottom: 3%;
 }
@@ -62,3 +63,25 @@ th, td {
 .labelstyle {
     padding-right: 20px;
 }
+
+.selectionsByfilter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:.5%;
+}
+
+
+
+.topDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.desc {
+    flex: 1;
+    margin: 1%;
+}
+
+
+
+

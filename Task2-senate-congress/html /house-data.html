@@ -16,25 +16,54 @@
         </div>
         <div class="tgif_email"><span class="glyphicon glyphicon-envelope envelope"></span><a href="info@tgif.com">info@tgif.net</a></div>
     </div>
-    <nav class="navbar navbar-default">
+     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown">
+                <li><a href="./home-starter-page.html">Home</a></li>
+                <li class="dropdown active">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
                     <ul class="dropdown-menu">
                         <li><a href="./senate-data.html">Senate</a></li>
                         <li><a href="./house-data.html">House</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-attend.html">Senate</a></li>
+                        <li><a href="./house-attend.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-party-loyalty.html">Senate</a></li>
+                        <li><a href="./house-party-loyalty.html">House</a></li>
+                    </ul>
+                </li>
+                 
             </ul>
         </div>
     </nav>
     <h2>House</h2>
     <p class="tgif_para">The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
     <p class="tgif_para">Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
-    <div class="tgif_rolling_table">
-        <table id="house-data" class="table table-bordered table-hover">
+    <div class="selectionsByfilter">
+    <div id="checkboxes">
+      <span class="labelstyle"> <label for ="Text">Filter By Party: </label></span>
+        <input type="checkbox" value='R' name="mycheckboxes" id="Republican">
+        <label for="republican">Republican</label>
+        <input type="checkbox" value='D' name="mycheckboxes" id="Democrates">
+        <label for="republican">Democrates</label>
+        <input type="checkbox" value='I' name="mycheckboxes" id="Independent">
+        <label for="republican">Independent</label>
+    </div>
+    <div>
+        <select id="state_select"></select>
+    </div>
+    </div>
+        <div class="tgif_rolling_table">
+        <table class="table table-bordered table-hover">
             <tr>
                 <th id="demo">Name</th>
                 <th>Party</th>
@@ -42,7 +71,7 @@
                 <th>Years of Experience</th>
                 <th>% of Votes</th>
             </tr>
-            <tbody>
+            <tbody id="house-data">
 
             </tbody>
         </table>

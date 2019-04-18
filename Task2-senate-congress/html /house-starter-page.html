@@ -5,23 +5,35 @@
     </head>
     
     <body>
-         <nav>
-          <div>
-            <div>
-              <a href="#">TGIF</a>
-            </div>
-            <ul >
-              <li><a href="#">Home</a></li>
-              <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="#">Senate</a></li>
-                  <li><a href="#">House</a></li>
-                </ul>
-              </li>
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#home" data-toggle="collapse">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-data.html">Senate</a></li>
+                        <li><a href="./house-data.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-attend.html">Senate</a></li>
+                        <li><a href="./house-attend.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-party-loyalty.html">Senate</a></li>
+                        <li><a href="./house-party-loyalty.html">House</a></li>
+                    </ul>
+                </li>
+                 
             </ul>
-          </div>
-        </nav>        
+        </div>
+    </nav>       
             <!--Table container-->
         <div>     
             <h2>Congressmen</h2>

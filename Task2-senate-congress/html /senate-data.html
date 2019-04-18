@@ -19,27 +19,50 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown">
+                <li><a href="./home-starter-page.html">Home</a></li>
+                <li class="dropdown active">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
                     <ul class="dropdown-menu">
                         <li><a href="./senate-data.html">Senate</a></li>
                         <li><a href="./house-data.html">House</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-attend.html">Senate</a></li>
+                        <li><a href="./house-attend.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle active" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-party-loyalty.html">Senate</a></li>
+                        <li><a href="./house-party-loyalty.html">House</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>
     <h2>Senate</h2>
     <p class="tgif_para">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
-    <div id="checkboxes">
-        <input type="checkbox" value='R' name="mycheckboxes" id="Republican">
-        <label for="republican">Republican</label>
-        <input type="checkbox" value='D' name="mycheckboxes" id="Democrates">
-        <label for="republican">Democrates</label>
+    <div class="selectionsByfilter">
+        <div id="checkboxes">
+            <span class="labelstyle"> <label for="Text">Filter By Party: </label></span>
+            <input type="checkbox" value='R' name="mycheckboxes" id="Republican">
+            <label for="republican">Republican</label>
+            <input type="checkbox" value='D' name="mycheckboxes" id="Democrates">
+            <label for="republican">Democrates</label>
+            <input type="checkbox" value='I' name="mycheckboxes" id="Independent">
+            <label for="republican">Independent</label>
+        </div>
+        <div>
+            <select id="state_select"></select>
+        </div>
     </div>
-    <div class=tgif_rolling_table>
-        <table id="senate-data" class="table table-bordered table-hover">
+    <div class="tgif_rolling_table">
+        <table class="table table-bordered table-hover">
             <tr>
                 <th id="demo">Name</th>
                 <th>Party</th>
@@ -47,12 +70,12 @@
                 <th>Years of Experience</th>
                 <th>% of Votes</th>
             </tr>
-            <tbody>
+            <tbody id="senate-data">
 
             </tbody>
         </table>
     </div>
-        
+
     <script src="../pro-congress-113-senate.js"></script>
     <script src="../senate.js" type="application/javascript">
     </script>
