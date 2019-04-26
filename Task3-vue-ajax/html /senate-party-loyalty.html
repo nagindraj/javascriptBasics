@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../tgif.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="../common.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="tgif_logo">
+            <h2><a href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">TGIF</a></h2>
+        </div>
+        <div class="tgif_email"><span class="glyphicon glyphicon-envelope envelope"></span><a href="info@tgif.com">info@tgif.net</a></div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="./home-starter-page.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-data.html">Senate</a></li>
+                        <li><a href="./house-data.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-attend.html">Senate</a></li>
+                        <li><a href="./house-attend.html">House</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./senate-party-loyalty.html">Senate</a></li>
+                        <li><a href="./house-party-loyalty.html">House</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div>
+        </div>
+    </header>
+    <!--Table container-->
+    <div id="loyal">
+    <div class="topDiv">
+        <div class="desc">
+            <h2>Party Loyalty</h2>
+            <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+        </div>
+        <div class="desc">
+            <h2>Senate at a glance</h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Party</th>
+                        <th>Number of Reps</th>
+                        <th>% Voted with Prty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="statistic in statistics">
+                        <td>{{ statistic.Party }}</td>
+                        <td> {{statistic.NumberOfReps}}</td>
+                        <td>{{ statistic.VotedWithPrty }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="topDiv">
+        <div class="desc">
+            <h2>Least Loyal (Bottom 10% of Party)</h2>
+            <div class="tgif_rolling_table">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number Party Votes</th>
+                            <th>% Party Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leastLoyalSenate">
+                        <tr v-for="member in members">
+                            <td v-if="member.middle_name">
+                                <a v-bind:href="member.url">{{ member.first_name+' '+member.middle_name+' '+member.last_name }}</a>
+                            </td>
+                            <td v-else>
+                                <a v-bind:href="member.url">{{ member.first_name+' '+member.last_name }}</a>
+                            </td>
+                            <td>{{ member.total_votes-member.missed_votes }}</td>
+                            <td>{{ member.votes_with_party_pct }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="desc">
+            <h2>Most Loyal (Top 10% of Party)</h2>
+            <div class="tgif_rolling_table">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number Party Votes</th>
+                            <th>% Party Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mostLoyalSenate">
+                        <tr v-for="member in members1">
+                            <td v-if="member.middle_name">
+                                <a v-bind:href="member.url">{{ member.first_name+' '+member.middle_name+' '+member.last_name }}</a>
+                            </td>
+                            <td v-else>
+                                <a v-bind:href="member.url">{{ member.first_name+' '+member.last_name }}</a>
+                            </td>
+                            <td>{{ member.total_votes-member.missed_votes }}</td>
+                            <td>{{ member.votes_with_party_pct }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <nav class="navbar navbar-default copyright_text">
+            <div class="container-fluid">
+                <a href="#">(c) 2016 TGIF | All Rights Reserved.</a>
+            </div>
+        </nav>
+    </footer>
+     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var congress = 'senate';
+    </script>
+    <script src="../party-loyalty.js"></script>
+</body></html>

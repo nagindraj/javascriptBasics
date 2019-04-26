@@ -1,0 +1,87 @@
+body {
+    width:70%;
+    margin:auto;
+    margin-top: 1%;
+    
+}
+
+.tgif_email {
+    text-align: right;
+    flex: 1;
+    font-size: 16px;
+}
+
+.main {
+    margin-bottom: 1%;
+    display: flex;
+    align-items: baseline;
+}
+
+.tgif_logo {
+    flex: 1;
+}
+
+.envelope {
+    margin-right: 1.5%;
+}
+
+
+
+.tgif_para {
+    text-indent: 3%;
+}
+
+footer {
+    margin-bottom: 5%;
+}
+
+
+
+.copyright_text {
+    display: flex;
+    align-items: center;
+}
+
+th, td {
+    text-align: center;
+}
+
+.tgif_rolling_table {
+    height: 350px;
+    overflow: scroll;
+    margin-bottom: 3%;
+}
+
+.showCheckbox {
+    display: 'visible';
+
+}
+
+
+
+
+.labelstyle {
+    padding-right: 20px;
+}
+
+.selectionsByfilter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:.5%;
+}
+
+
+
+.topDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.desc {
+    flex: 1;
+    margin: 1%;
+}
+
+
+
+
