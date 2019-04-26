@@ -1,13 +1,42 @@
-var membersData = data.results[0].members;
+
+fetch('https://api.propublica.org/congress/v1/113/house/members.json', {
+  method: 'GET', // or 'PUT' // data can be `string` or {object}!
+  headers:{
+    'X-API-Key': 'pmO3I5rettM9agbbSru7AVPLpl7QLFuXY6hsFMPW'
+  }
+}).then(function(response){
+    return response.json();// here in response you will not get the data you will just get the acknowledgement and response.jason() will wait for data a promise. 
+}).then(function(data){
+   var membersData = data.results[0].members;
+    //append the state values from membersData to select box
+    createTable(membersData);
+    createDropdown(membersData);
+    
+    //attach change event to all checkboxes
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function () {
+            //now we are going to create a new data using the checkbox checked conditions 
+            createData(membersData);
+        });
+    }
+
+    //attach change event for selectbox
+
+    document.getElementById('state_select').addEventListener('change', function () {
+        createData(membersData);
+    })
+});
+
 //console.log(membersData); here u will get all the infoformation
 
 //get all the checkboxes and store it in a variable
 var checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 //append the state values from membersData to select box
-createDropdown(); //first calling a function and then crating
+ //first calling a function and then crating
 //creating a function for dropdown
-function createDropdown(){
+function createDropdown(membersData){
     var select = document.getElementById("state_select");
     var mainOption ='<option value ="">select</option>';
    for (var i = 0; i < membersData.length; i++) {
@@ -18,7 +47,7 @@ function createDropdown(){
   
     //console.log(mainOption);
 }
-createTable(membersData);
+
 function createTable(membersData){
     var trData=document.getElementById('house-data').innerHTML;
    // console.log(trData);
@@ -37,8 +66,7 @@ function createTable(membersData){
             var fullName = firstName + ' ' + middleName + ' ' + lastName;
         }
 
-        var linkName = fullName.link(membersData[i].url);
-        document.getElementById("demo").innerHTML = linkName;
+        var url = membersData[i].url;
         var party = membersData[i].party;
         var state = membersData[i].state;
         var seniority = membersData[i].seniority;
@@ -47,7 +75,7 @@ function createTable(membersData){
         var stateTr = '<td>' + state + '</td>';
         var partyTr = '<td class=party>' + party + '</td>';
         var seniorityTr = '<td>' + seniority + '</td>';
-        var trElement = '<tr class="senate"><td>' + linkName + '</td> ' + partyTr + stateTr + seniorityTr + votes_with_party_pct_Tr + '</tr>';
+        var trElement = '<tr class="senate"><td><a href="'+url+'"/>'+ fullName + '</td> ' + partyTr + stateTr + seniorityTr + votes_with_party_pct_Tr + '</tr>';
         trElem = trElem + trElement;
     }
     trData=trElem;
@@ -109,18 +137,3 @@ function checkIfCheckboxesUnchecked() {
 
     return true;
 }
-
-//attach change event to all checkboxes
-
-for (var i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].addEventListener('change', function () {
-        //now we are going to create a new data using the checkbox checked conditions 
-        createData(membersData);
-    });
-}
-
-//attach change event for selectbox
-
-document.getElementById('state_select').addEventListener('change', function () {
-    createData(membersData);
-})

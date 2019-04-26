@@ -1,3 +1,16 @@
+fetch('https://api.propublica.org/congress/v1/113/'+congress+'/members.json', {
+  method: 'GET', // or 'PUT' // data can be `string` or {object}!
+  headers:{
+    'X-API-Key': 'pmO3I5rettM9agbbSru7AVPLpl7QLFuXY6hsFMPW'
+  }
+}).then(function(response){
+    return response.json();
+}).then(function(data){
+    var membersData = data.results[0].members;
+    
+    sortMembersByPartyVotes(membersData)
+    createAttendanceData(membersData);
+});
 var statistics = [{
     Party: 'Republican', 
     NumberOfReps: 0, 
@@ -23,11 +36,8 @@ var statistics = [{
     value: 'T'
 }]
 
-var membersData = data.results[0].members;
 
-createAttendanceData();
-
-function createAttendanceData(){
+function createAttendanceData(membersData){
     var democrats = 0 ;
     var republicans = 0;
     var independents = 0;
@@ -65,8 +75,8 @@ function createAttendanceData(){
     }
     
     createAttendanceTable();
-    createLeastLoyalTable();
-    createMostLoyalTable();
+    createLeastLoyalTable(membersData);
+    createMostLoyalTable(membersData);
 }
 
 function createAttendanceTable() {
@@ -82,15 +92,15 @@ function createAttendanceTable() {
     document.querySelector('#attendance').innerHTML = mainTr;
 }
 
-function sortMembersByPartyVotes() {
-    return membersData.sort(function(a, b) {
+function sortMembersByPartyVotes(membersData) {
+     membersData.sort(function(a, b) {
         return (a.total_votes-a.missed_votes) - (b.total_votes-b.missed_votes);
     });
 }
 
 
-function createMostLoyalTable() {
-    sortMembersByPartyVotes();
+function createMostLoyalTable(membersData) {
+    
     var mainTr = ''
     var len = membersData.length;
     for(var i=len-1;i>0;i--) {
@@ -124,8 +134,8 @@ function createMostLoyalTable() {
     document.querySelector('#mostLoyalSenate').innerHTML = mainTr;
 }
 
-function createLeastLoyalTable() {
-    sortMembersByPartyVotes();
+function createLeastLoyalTable(membersData) {
+   
     var mainTr = ''
     var len = membersData.length;
     for(var i=0;i<len;i++) {
